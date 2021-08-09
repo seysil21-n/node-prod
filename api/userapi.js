@@ -16,11 +16,8 @@ const vonage = new Vonage({
     apiSecret: "ZUPjW6M0zdpElh8q"
   }) 
 
-//cors middleware
-router.use(cors({
-    origin: 'http://localhost:3000',
-    credentials:true    
-}))
+// //cors middleware
+router.use(cors())
 
 // users model
 require('../model/Users')
@@ -35,24 +32,20 @@ router.use(express.json())
 router.use(express.urlencoded({extended: true}))
 
 // session middleware
-router.use(session({
-    resave: true,
-    saveUninitialized: true,
-    secret: process.env.SECRET,
-    cookie: {
-        httpOnly: true, secure: false, sameSite: true,path: '/'
-    }
+// router.use(session({
+//     resave: true,
+//     saveUninitialized: true,
+//     secret: process.env.SECRET,
+//     cookie: {
+//         httpOnly: true, secure: false, sameSite: true,path: '/'
+//     }
     
-}))
+// }))
 
 router.get('/login', (req,res,next)=>{
-  Users.find({})
-  .then(response=> {
-      if(req.session.user)
-        res.send('logged in')
-    else
-        res.send('not logged')
-  })
+  
+  console.log('login get')
+
 })
 
 // login api
@@ -61,6 +54,7 @@ router.post('/login', (req,res, next)=>{
     // calling the auth middleware
     authMeths.authenticate(req,res,next,Users)
     
+    console.log('login post')
 
 
 })

@@ -27,7 +27,7 @@ dotenv.config()
 // io configuarations
 let io  = socket(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "http://10.0.2.15:80",
       methods: ["GET", "POST"]
     }})
 
@@ -47,7 +47,10 @@ io.on('connection', socket =>{
     })
 })
 
+app.get("/", (req,res)=>{
+    res.send('hi')
+})
 
 const port  =  process.env.CUSTOM_PORT ;
-server.listen(port, ()=> console.log(`listening on Port ${port}`))
+server.listen(3000, ()=> console.log(`listening on Port ${port}`))
 

@@ -30,7 +30,7 @@ const authMeths = {
                 .catch(err=>{
                     if(err) throw err
                 })
-    
+        
     },
 
     // // chech to see if user is authenticated and authorise
