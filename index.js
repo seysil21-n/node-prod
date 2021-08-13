@@ -27,7 +27,7 @@ dotenv.config()
 // io configuarations
 let io  = socket(server, {
     cors: {
-      origin: "http://10.0.2.15:80",
+      origin: "http://147.182.135.17",
       methods: ["GET", "POST"]
     }})
 
