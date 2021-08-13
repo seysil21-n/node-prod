@@ -54,7 +54,7 @@ router.post('/login', (req,res, next)=>{
     // calling the auth middleware
     authMeths.authenticate(req,res,next,Users)
     
-    console.log('login post1')
+    console.log('login post3')
 
 
 })
